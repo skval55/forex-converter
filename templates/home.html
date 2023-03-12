@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body class="p-5 bg-secondary-subtle">
+    <div class="bg-info card w-auto rounded-4">
+        <h1 class="text-center card-title p-2">Exchange Currency!</h1>
+        <div class="my-2">
+            {% for msg in get_flashed_messages() %}
+            <div class="text-center card-text alert alert-danger my-1 w-75 mx-auto">invalid input {{ msg }}</div>
+            {% endfor %}
+        </div>
+        <form class="card w-75 w-sm-50 w-md-25 text-center mx-auto mb-3 p-3 bg-secondary-subtle rounded-4"
+            action="/convert" method="POST">
+            <label for="convert-from">Convert From</label>
+            <input class="form-control" type="text" name="convert-from" id="convert-from" placeholder="USD">
+            <br>
+            <label for="convert-to">Convert To</label>
+            <input class="form-control" type="text" name="convert-to" id="convert-to" placeholder="EUR">
+            <br>
+            <label for="amount">Amount</label>
+            <input class="form-control" type="text" name="amount" id="amount" placeholder="10">
+            <br>
+            <input class="btn btn-success" type="submit">
+        </form>
+    </div>
+</body>
+
+</html>
